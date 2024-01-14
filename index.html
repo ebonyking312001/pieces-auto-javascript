@@ -22,7 +22,25 @@
 				<button class="btn-description">Filtrer les pièces qui ont une description</button>
 				<br>
 				<button class="btn-decroissant">Trier par ordre décroissant</button>
-			
+				<br>
+				<br>
+				<p>Sélectionnez vos prix: </p>
+				<input type="range" id="rangeInput" name="rangeInput" min="0" max="60" step="5">
+				<span id="rangeValue">50</span></p>
+
+    			<script>
+    			    // Sélection de l'élément input de type range
+    			    var rangeInput = document.getElementById('rangeInput');
+				
+    			    // Sélection de l'élément span pour afficher la valeur
+    			    var rangeValue = document.getElementById('rangeValue');
+				
+    			    // Ajout d'un écouteur d'événements pour détecter les changements de valeur
+    			    rangeInput.addEventListener('input', function() {
+    			        // Mise à jour du texte de l'élément span avec la valeur actuelle du range
+    			        rangeValue.textContent = rangeInput.value;
+    			    });
+    			</script>
 			</section>
 			<!-- Fiches produits -->
 			<section class="fiches">
