@@ -1,3 +1,5 @@
+import { ajoutListenersAvis } from "./avis.js";
+
 // Récupération des pièces depuis le fichier JSON
 const reponse = await fetch("pieces-autos.json");
 //const pieces = await reponse.json();
@@ -28,6 +30,10 @@ function genererPieces(pieces){
         const stockElement = document.createElement("p");
         stockElement.textContent = article.disponibilite ? "En stock" : "Rupture de stock";
 
+        const avisBouton = document.createElement("button");
+        avisBouton.dataset.id = article.id;
+        avisBouton.textContent = "Afficher les avis";
+
         sectionFiches.appendChild(pieceElement);
         pieceElement.appendChild(imageElement);
         pieceElement.appendChild(nomElement);
@@ -35,6 +41,9 @@ function genererPieces(pieces){
         pieceElement.appendChild(categorieElement);
         pieceElement.appendChild(descriptionElement);
         pieceElement.appendChild(stockElement);
+        pieceElement.appendChild(avisBouton);
+
+        ajoutListenersAvis();
     }
 }
 
